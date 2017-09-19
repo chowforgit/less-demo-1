@@ -1,0 +1,423 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+
+// 布局样式
+#layout(@name) {
+    & when(@name=header) {
+        height: 60px;
+        #bg-color(black);
+    }
+    & when(@name=banner) {
+        height: 480px;
+        #bg-color(white);
+    }
+    & when(@name=course) {
+        height: 1000px;
+        #bg-color(white);
+    }
+    & when(@name=footer) {
+        height: 98px;
+        #bg-color(black);
+    }
+    position: relative;
+}
+#bg-color(@name) {
+    // 背景颜色定义
+    & when(@name=black) {
+		background-color: #000;
+    }
+    & when(@name=white) {
+		background-color: #fff;
+    }
+    & when(@name=gray) {
+		background-color: #363c41;
+	}
+}
+#ft-size(@name) {
+    // 字体大小定义
+    & when(@name=small){
+		font-size: 12px;
+	}
+	& when(@name=medium){
+		font-size: 14px;
+	}
+	& when(@name=large){
+		font-size: 16px;
+    }
+    & when(@name=big){
+		font-size: 22px;
+	}
+	& when(@name=title){
+		font-size: 32px;
+	}
+}
+#color(@name) {
+    // 字体颜色定义
+    & when(@name=gray){
+		color: #959aa0;
+	}
+	& when(@name=black){
+		color: #000;
+	}
+	& when(@name=white){
+		color: #fff;
+    }
+    & when(@name=title){
+		color: #07111b;
+    }
+    & when(@name=red){
+		color: red;
+    }
+}
+
+// 小样式定义
+#course-box(@name){
+    & when (@name=standard){
+        width: 224px;
+		height: 258px;
+        float: left;
+        box-shadow: 0 4px 8px rgba(7,17,27,.1);
+        background-color: #fff;
+        position: relative;
+        margin: 0 20px 34px 0;
+        #decorate-bottom();
+    }
+    &:nth-child(4n){
+        margin-right: 0;
+    }
+    &:nth-child(9n){
+        #center-h(224px);
+    }
+}
+#decorate-bottom(){
+    &:before{
+		content: ' ';
+		display: block;
+		width: 98%;
+		left: 1%;
+		bottom: -4px;
+		height: 3px;
+        background-color: #fff;
+        position: absolute;
+        border-radius: 4px;
+		box-shadow: 0 8px 16px rgba(7,17,27,.2);
+    }
+    &:after{
+		content: ' ';
+		display: block;
+		width: 96%;
+		left: 2%;
+		bottom: -8px;
+		height: 3px;
+        background-color: #fff;
+        position: absolute;
+        border-radius: 4px;
+		box-shadow: 0 8px 16px rgba(7,17,27,.2);
+	}
+}
+
+// 功能函数定义
+#radius(@radius:50%){
+	border-radius: @radius
+}
+#square(@w:10px){
+	width: @w;
+	height: @w;
+}
+#bg-img(@src){
+	background-image: url("../image/@{src}") ;
+	background-repeat:  no-repeat;
+}
+#center-h(@width){
+	left:50%;
+	margin-left:@width*-.5;
+}
+#line-height(@height){
+	height: @height;
+	line-height: @height;
+}
+
+// 无参数函数定义
+.fl(){
+	float: left;
+}
+.fr(){
+	float: right;
+}
+.clear-fix(){
+    &:after{
+        content: '';
+        display: block;
+        font-size: 0;
+        line-height: 0;
+        clear: both;
+        zoom: 1;
+    }
+}
+.cover-background(){
+    background+_: no-repeat center;
+    background-size: cover;
+}
+
+// 模块样式
+.header{
+    #layout(header);
+    @standard-height:36px;
+    .logo{
+        .fl();
+        width: 128px;
+        height: @standard-height;
+        background+_: url(../image/logo.png);
+        .cover-background();
+        margin: 12px 25px;
+    }
+    .nav{
+        .fl();
+        height: 100%;
+        &__item{
+            display: block;
+            .fl();
+            line-height: 60px;
+            padding: 0 25px;
+            #ft-size(medium);
+            #color(white);
+            &:hover{
+                #bg-color(gray);
+            }
+            &_icon_new{
+                #bg-color(gray);
+                position: relative;
+                &:after{
+                    content: ' ';
+                    #square(16px);
+                    #bg-img("icon-new.png");
+                    display: block;
+                    position: absolute;
+                    top: 8px;
+                    right: 9px;
+				}
+            }
+        }
+    }
+    .search{
+        .fr();
+        position: relative;
+        height: @standard-height;
+        margin: 12px 25px;
+
+        &__input{
+            width: 242px;
+            height: @standard-height;
+            border: none;
+            #bg-color(black);
+            border-bottom: 1px solid #363c41;
+        }
+        &::before{
+            content: '前端入门';
+			display: block;
+            position: absolute;
+            width: 72px;
+            #line-height(30px);
+            text-align: center;
+            #bg-color(gray);
+            #color(gray);
+            #ft-size(small);
+        }
+        &__submit{
+            display: block;
+            position: absolute;
+            right: 25px;
+			top: 4px;
+            #square(22px);
+			#bg-img("icon-1-sprite_w22.png");
+        }
+    }
+    .profile{
+        .fr();
+        &__item{
+            display: block;
+            .fl();
+            width: 60px;
+			height: 60px;
+            position: relative;
+            &:hover{
+				#bg-color(gray);
+			}
+        }
+        &__lock:before,&__ring:before{
+            content: ' ';
+			display: block;
+            position: absolute;
+            left: 19px;
+			top: 19px;
+			#square(22px);
+			#bg-img("icon-1-sprite_w22.png");
+        }
+        &__lock:before{
+			background-position: 0 -22px ;
+		}
+		&__ring:before{
+			background-position: 0 -44px ;
+        }
+        &__ava:before{
+            content: ' ';
+			display: block;
+            position: absolute;
+            left: 19px;
+            top: 19px;
+            #square(22px);
+            #bg-img("ava.jpg");
+            #radius();
+            background-size: cover;
+        }
+    }
+}
+.banner{
+    #layout(banner);
+    width: 100%;
+    #bg-img("bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.course{
+    #layout(course);
+    position: relative;
+    &__list{
+        width: 956px;
+        position: absolute;
+        top: -86px;
+        #center-h(956px);
+        .stadard-course{
+            position: relative;
+            #course-box(standard);
+            &__cover{
+				height: 90px;
+				img{
+					width: 100%;
+				}
+            }
+            &__plan{
+                position: absolute;
+                top: 90px;
+                width: 224px-40px;
+				padding: 16px 20px 0 20px;
+                #bg-img("titlebg.png");
+                transition: all .7s;
+                &:hover{
+                    top: 50px;
+                    height: 100px+40px;
+                    .stadard-course__intro{
+                        display: block;
+                    }
+                }
+            }
+            &__caption{
+                #ft-size(large);
+                font-weight: bold;
+                #color(title);
+            }
+            &__intro{
+                #ft-size(small);
+                #color(gray);
+                padding: 10px 0;
+                display: none;
+            }
+            &__times{
+                #ft-size(small);
+                #color(gray);
+                border-bottom: 1px solid #959aa0;
+                padding: 10px 0;
+            }
+            &__price{
+                #ft-size(medium);
+                #color(red);
+                position: absolute;
+                bottom: 0;
+                padding: 20px 20px;
+                i{
+					font-style: normal;
+					padding: 0 3px;
+					vertical-align: 10%;
+				}
+            }
+        }
+    }
+}
+.footer{
+    #layout(footer);
+    #ft-size(small);
+    .footer-link{
+        width: 1000px;
+		margin: 0 auto;
+		height: 12px;
+        padding: 30px 0 16px 40px;
+        &__item{
+			display: inline-block;
+			margin-right: 30px;
+			float: left;
+            #color(gray);
+            &:hover{
+                #color(white);
+            }
+		}
+    }
+    .footer-copy{
+		width: 1000px;
+		margin: 0 auto;
+		height: 12px;
+		padding: 0 0 0 40px;
+		#color(gray);
+    }
+    .footer-share{
+		position: absolute;
+		width: 135px;
+		height: 32px;
+		right: 140px;
+		top: 34px;
+		&__item{
+			padding-left: 13px;
+			display: inline-block;
+			.fl();
+			#square(32px);
+            #bg-img('footer-sprite.png');
+            &:hover{
+                opacity: 0.7;
+            }
+            &:nth-child(1){
+                background-position: 6px -279px;
+                position: relative;
+                &:hover{
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 170px;
+                        height: 220px;
+                        #bg-img('footer-sprite.png');
+                        top: -220px;
+                        left: -65px;
+                    }
+                }
+			}
+			&:nth-child(2){
+				background-position: 6px -321px;
+			}
+			&:nth-child(3){
+				background-position: 6px -363px;
+			}
+		}
+	}
+}
+
+@color:red;
+.color(@color:red){
+    color:@color;
+}
+div{
+    .color();
+}

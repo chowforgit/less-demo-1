@@ -1,0 +1,310 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+.header {
+  height: 60px;
+  background-color: #000;
+  position: relative;
+}
+.header .logo {
+  float: left;
+  width: 128px;
+  height: 36px;
+  background: url(../image/logo.png) no-repeat center;
+  background-size: cover;
+  margin: 12px 25px;
+}
+.header .nav {
+  float: left;
+  height: 100%;
+}
+.header .nav__item {
+  display: block;
+  float: left;
+  line-height: 60px;
+  padding: 0 25px;
+  font-size: 14px;
+  color: #fff;
+}
+.header .nav__item:hover {
+  background-color: #363c41;
+}
+.header .nav__item_icon_new {
+  background-color: #363c41;
+  position: relative;
+}
+.header .nav__item_icon_new:after {
+  content: ' ';
+  width: 16px;
+  height: 16px;
+  background-image: url("../image/icon-new.png");
+  background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  top: 8px;
+  right: 9px;
+}
+.header .search {
+  float: right;
+  position: relative;
+  height: 36px;
+  margin: 12px 25px;
+}
+.header .search__input {
+  width: 242px;
+  height: 36px;
+  border: none;
+  background-color: #000;
+  border-bottom: 1px solid #363c41;
+}
+.header .search::before {
+  content: '前端入门';
+  display: block;
+  position: absolute;
+  width: 72px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #363c41;
+  color: #959aa0;
+  font-size: 12px;
+}
+.header .search__submit {
+  display: block;
+  position: absolute;
+  right: 25px;
+  top: 4px;
+  width: 22px;
+  height: 22px;
+  background-image: url("../image/icon-1-sprite_w22.png");
+  background-repeat: no-repeat;
+}
+.header .profile {
+  float: right;
+}
+.header .profile__item {
+  display: block;
+  float: left;
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+.header .profile__item:hover {
+  background-color: #363c41;
+}
+.header .profile__lock:before,
+.header .profile__ring:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 19px;
+  top: 19px;
+  width: 22px;
+  height: 22px;
+  background-image: url("../image/icon-1-sprite_w22.png");
+  background-repeat: no-repeat;
+}
+.header .profile__lock:before {
+  background-position: 0 -22px;
+}
+.header .profile__ring:before {
+  background-position: 0 -44px;
+}
+.header .profile__ava:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 19px;
+  top: 19px;
+  width: 22px;
+  height: 22px;
+  background-image: url("../image/ava.jpg");
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  background-size: cover;
+}
+.banner {
+  height: 480px;
+  background-color: #fff;
+  position: relative;
+  width: 100%;
+  background-image: url("../image/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.course {
+  height: 1000px;
+  background-color: #fff;
+  position: relative;
+}
+.course__list {
+  width: 956px;
+  position: absolute;
+  top: -86px;
+  left: 50%;
+  margin-left: -478px;
+}
+.course__list .stadard-course {
+  width: 224px;
+  height: 258px;
+  float: left;
+  box-shadow: 0 4px 8px rgba(7, 17, 27, 0.1);
+  background-color: #fff;
+  position: relative;
+  margin: 0 20px 34px 0;
+}
+.course__list .stadard-course:before {
+  content: ' ';
+  display: block;
+  width: 98%;
+  left: 1%;
+  bottom: -4px;
+  height: 3px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(7, 17, 27, 0.2);
+}
+.course__list .stadard-course:after {
+  content: ' ';
+  display: block;
+  width: 96%;
+  left: 2%;
+  bottom: -8px;
+  height: 3px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(7, 17, 27, 0.2);
+}
+.course__list .stadard-course:nth-child(4n) {
+  margin-right: 0;
+}
+.course__list .stadard-course:nth-child(9n) {
+  left: 50%;
+  margin-left: -112px;
+}
+.course__list .stadard-course__cover {
+  height: 90px;
+}
+.course__list .stadard-course__cover img {
+  width: 100%;
+}
+.course__list .stadard-course__plan {
+  position: absolute;
+  top: 90px;
+  width: 184px;
+  padding: 16px 20px 0 20px;
+  background-image: url("../image/titlebg.png");
+  background-repeat: no-repeat;
+  transition: all .7s;
+}
+.course__list .stadard-course__plan:hover {
+  top: 50px;
+  height: 140px;
+}
+.course__list .stadard-course__plan:hover .stadard-course__intro {
+  display: block;
+}
+.course__list .stadard-course__caption {
+  font-size: 16px;
+  font-weight: bold;
+  color: #07111b;
+}
+.course__list .stadard-course__intro {
+  font-size: 12px;
+  color: #959aa0;
+  padding: 10px 0;
+  display: none;
+}
+.course__list .stadard-course__times {
+  font-size: 12px;
+  color: #959aa0;
+  border-bottom: 1px solid #959aa0;
+  padding: 10px 0;
+}
+.course__list .stadard-course__price {
+  font-size: 14px;
+  color: red;
+  position: absolute;
+  bottom: 0;
+  padding: 20px 20px;
+}
+.course__list .stadard-course__price i {
+  font-style: normal;
+  padding: 0 3px;
+  vertical-align: 10%;
+}
+.footer {
+  height: 98px;
+  background-color: #000;
+  position: relative;
+  font-size: 12px;
+}
+.footer .footer-link {
+  width: 1000px;
+  margin: 0 auto;
+  height: 12px;
+  padding: 30px 0 16px 40px;
+}
+.footer .footer-link__item {
+  display: inline-block;
+  margin-right: 30px;
+  float: left;
+  color: #959aa0;
+}
+.footer .footer-link__item:hover {
+  color: #fff;
+}
+.footer .footer-copy {
+  width: 1000px;
+  margin: 0 auto;
+  height: 12px;
+  padding: 0 0 0 40px;
+  color: #959aa0;
+}
+.footer .footer-share {
+  position: absolute;
+  width: 135px;
+  height: 32px;
+  right: 140px;
+  top: 34px;
+}
+.footer .footer-share__item {
+  padding-left: 13px;
+  display: inline-block;
+  float: left;
+  width: 32px;
+  height: 32px;
+  background-image: url("../image/footer-sprite.png");
+  background-repeat: no-repeat;
+}
+.footer .footer-share__item:hover {
+  opacity: 0.7;
+}
+.footer .footer-share__item:nth-child(1) {
+  background-position: 6px -279px;
+  position: relative;
+}
+.footer .footer-share__item:nth-child(1):hover::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 170px;
+  height: 220px;
+  background-image: url("../image/footer-sprite.png");
+  background-repeat: no-repeat;
+  top: -220px;
+  left: -65px;
+}
+.footer .footer-share__item:nth-child(2) {
+  background-position: 6px -321px;
+}
+.footer .footer-share__item:nth-child(3) {
+  background-position: 6px -363px;
+}
